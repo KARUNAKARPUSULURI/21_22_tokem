@@ -1,0 +1,20 @@
+[
+    {
+        "email": "alpha@gmail.com",
+        "password": "$2b$10$P12OqwjspQUY/o6uCSeY.eso4OJlvWWIQKtXIl3PRtXhjGWpidS.i",
+        "username": "karunakar",
+        "id": 1
+    },
+    {
+        "email": "karunpusuluri@gmail.com",
+        "password": "$2b$10$ICCHqzVq7wDS9BuXZBpBU.dwYGB1lU57IR16yBiPNUIPF/JNYnPuK",
+        "username": "karunpusuluri@gmail.com",
+        "id": 2
+    },
+    {
+        "email": "hello@gmail.com",
+        "password": "$2b$10$LKubZ.uf30Y5TmN6JONSr..RzOXQnUQpfefEr1O5aQMNPWXEhZXPS",
+        "username": "karunpusuluri@gmail.com",
+        "id": 3
+    }
+]
