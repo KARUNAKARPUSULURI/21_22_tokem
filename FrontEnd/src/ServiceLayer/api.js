@@ -1,20 +1,34 @@
-import { getProductsUrl, postLoginUrl, postRegisterUrl } from "./constants"
+import axios from 'axios';
+import { getProductsUrl, postLoginUrl, postRegisterUrl } from "./constants";
 
-const getProductsData = async () => {
-    const res = await fetch(getProductsUrl)
-    const data = await res.json()
-    return data
-}
+const apiClient = axios.create({
+    baseURL: 'http://localhost:3000', 
+    timeout: 1000,
+});
 
-const postRegisterData = async(payload)=>{
-    const res = await fetch(postRegisterUrl, payload)
-    const data = await res.json()
-    return data
-}
-const postLoginData = async(payload)=>{
-    const res = await fetch(postLoginUrl, payload)
-    const data = await res.json()
-    return data
-}
+const methods = {
+    GET: async (url) => {
+        try {
+            const response = await apiClient.get(url);
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            throw error.response ? error.response.data : error.message;
+        }
+    },
+    POST: async (url, payload) => {
+        try {
+            const response = await apiClient.post(url, payload);
+            return response.data;
+        } catch (error) {
+            console.error("Error posting data:", error);
+            throw error.response ? error.response.data : error.message;
+        }
+    }
+};
 
-export {getProductsData, postRegisterData, postLoginData}
+const getProductsData = () => methods.GET(getProductsUrl);
+const postRegisterData = (payload) => methods.POST(postRegisterUrl, payload);
+const postLoginData = (payload) => methods.POST(postLoginUrl, payload);
+
+export { getProductsData, postRegisterData, postLoginData };
